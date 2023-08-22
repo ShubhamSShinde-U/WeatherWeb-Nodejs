@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <% var newData = JSON.parse(data) %>
+    <h2 class="cityName">Weather at <%= newData.location.name %></h2>
+    <div class="all_data">
+        <div class="upper">
+            <div class="upper-top">
+                <img class="main-img" src=<%= newData.current.condition.icon  %>  alt="">
+                <p><%= newData.current.condition.text %></p>
+            </div>
+            <div class="upper-btm">
+                <p>Wind: <%= newData.current.wind_mph %>mph</p>
+                <p>Precip: <%= newData.current.precip_in %>in</p>
+                <p>Pressure: <%= newData.current.pressure_in %>in</p>
+                <h2>Temp: <%= newData.current.temp_f %> f</h2>
+            </div>
+        </div>
+        <div class="lower">
+            <div class="1">
+                <% var date = new Date( newData.forecast.forecastday[0].date ) %>
+                <% var day = date.getDay(); %>
+                <% console.log(day) %>
+                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+                <% var dayName = daysOfWeek[day]; %>
+                <p><%= dayName %></p>
+                <img src=<%= newData.forecast.forecastday[0].day.condition.icon %> alt="">
+                <p><%= newData.forecast.forecastday[0].day.maxtemp_f %></p>
+            </div>
+            <div class="2">
+                <% var date = new Date( newData.forecast.forecastday[1].date ) %>
+                <% var day = date.getDay(); %>
+                <% console.log(day) %>
+                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+                <% var dayName = daysOfWeek[day]; %>
+                <p><%= dayName %></p>
+                <img src=<%= newData.forecast.forecastday[1].day.condition.icon %> alt="">
+                <p><%= newData.forecast.forecastday[1].day.maxtemp_f %></p>
+            </div>
+            <div class="3">
+                <% var date = new Date( newData.forecast.forecastday[2].date ) %>
+                <% var day = date.getDay(); %>
+                <% console.log(day) %>
+                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+                <% var dayName = daysOfWeek[day]; %>
+                <p><%= dayName %></p>
+                <img src=<%= newData.forecast.forecastday[2].day.condition.icon %> alt="">
+                <p><%= newData.forecast.forecastday[2].day.maxtemp_f %></p>
+            </div>
+            <div class="4">
+               <% var date = new Date( newData.forecast.forecastday[3].date ) %>
+                <% var day = date.getDay(); %>
+                <% console.log(day) %>
+                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+                <% var dayName = daysOfWeek[day]; %>
+                <p><%= dayName %></p>
+                <img src=<%= newData.forecast.forecastday[3].day.condition.icon %> alt="">
+                <p><%= newData.forecast.forecastday[3].day.maxtemp_f %></p>
+            </div>
+            <div class="5">
+                <% var date = new Date( newData.forecast.forecastday[04].date ) %>
+                <% var day = date.getDay(); %>
+                <% console.log(day) %>
+                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+                <% var dayName = daysOfWeek[day]; %>
+                <p><%= dayName %></p>
+                <img src=<%= newData.forecast.forecastday[04].day.condition.icon %> alt="">
+                <p><%= newData.forecast.forecastday[04].day.maxtemp_f %></p>
+            </div>
+
+        </div>
+    </div>
+    <div class="userChoice">
+        <form action="/userChoice" method="post">
+            <input type="text" name="userCity" id="" placeholder="Enter City Name" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    
+</body>
+</html>
+
+
+<!-- api = http://api.weatherapi.com/v1/current.json?key=99bb9e1aeaa94a84a5e141003232208&q=London&aqi=no -->
+<!--  -->
+<!-- api key=99bb9e1aeaa94a84a5e141003232208 -->
