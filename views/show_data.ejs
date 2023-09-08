@@ -57,26 +57,7 @@
                 <img src=<%= newData.forecast.forecastday[2].day.condition.icon %> alt="">
                 <p><%= newData.forecast.forecastday[2].day.maxtemp_f %></p>
             </div>
-            <div class="4">
-               <% var date = new Date( newData.forecast.forecastday[3].date ) %>
-                <% var day = date.getDay(); %>
-                <% console.log(day) %>
-                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
-                <% var dayName = daysOfWeek[day]; %>
-                <p><%= dayName %></p>
-                <img src=<%= newData.forecast.forecastday[3].day.condition.icon %> alt="">
-                <p><%= newData.forecast.forecastday[3].day.maxtemp_f %></p>
-            </div>
-            <div class="5">
-                <% var date = new Date( newData.forecast.forecastday[04].date ) %>
-                <% var day = date.getDay(); %>
-                <% console.log(day) %>
-                <% var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
-                <% var dayName = daysOfWeek[day]; %>
-                <p><%= dayName %></p>
-                <img src=<%= newData.forecast.forecastday[04].day.condition.icon %> alt="">
-                <p><%= newData.forecast.forecastday[04].day.maxtemp_f %></p>
-            </div>
+            
 
         </div>
     </div>
