@@ -19,7 +19,7 @@ app.post("/login",async function(req,res){
     password = req.body.password;
     if(userName==="demo" && password === "password"){
 
-        const result = await axios.get("http://api.weatherapi.com/v1/forecast.json?key=db7a49be788f49c2941135515230809&q=london&days=7&hour=0&astro=0");
+        const result = await axios.get("http://api.weatherapi.com/v1/forecast.json?key=4d4e2eae35a5460f870140041230809&q=london&days=7&hour=0&astro=0");
         
         res.render("show_data",{data: JSON.stringify(result.data)});
     }
@@ -30,7 +30,7 @@ app.post("/login",async function(req,res){
 
 app.post("/userChoice",async function(req,res){
     var cityName = req.body.userCity;
-    var api = "http://api.weatherapi.com/v1/forecast.json?key=db7a49be788f49c2941135515230809&q="+cityName+"&days=7&hour=0&astro=0";
+    var api = "http://api.weatherapi.com/v1/forecast.json?key=4d4e2eae35a5460f870140041230809&q="+cityName+"&days=7&hour=0&astro=0";
     const result = await axios.get(api);
     res.render("show_data", { data: JSON.stringify(result.data) });
 })
